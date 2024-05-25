@@ -62,7 +62,7 @@ export default function Header({ cartData, setCartData }) {
         </div>
       </div>
       <div className="flex items-center gap-5 relative">
-        <span className={`text-white rounded-full bg-orange-500 ${cartData.count ? "p-2" : "p-0"} p-2 h-fit absolute -top-5 left-5`}>{cartData.count}</span>
+        <span className={`text-white rounded-full bg-orange-500 ${cartData.count ? "p-2" : "paddingZero"} p-2 h-fit absolute -top-5 left-5`}>{cartData.count}</span>
         <button onClick={handleClick} className="cartToggle">
           <img src={cartimg} alt="cartimg" />
         </button>
