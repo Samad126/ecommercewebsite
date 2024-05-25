@@ -1,0 +1,195 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  transition: all 0.3s;
+}
+
+html, body {
+  height: 100%;
+}
+
+#backdrop {
+  width: 100%;
+  height: 100vh; 
+  background-color: black;
+  position: fixed; 
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+body {
+  z-index: -1;
+}
+
+#dialog{
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 12;
+}
+
+.links{
+  position: relative;
+}
+
+.links::after {
+  content: ""; 
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px; 
+  height: 4px; 
+  background-color: orange; 
+  transition: opacity 0.3s;
+  opacity: 0;
+}
+
+
+.links:hover::after,
+.links:focus::after {
+  opacity: 1;
+}
+
+@layer base {
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+
+@media only screen and (max-width: 830px){
+  .linkslistdiv{
+    gap: 30px !important;
+  }
+}
+
+@media only screen and (max-width: 705px){
+  .linkslist{
+    display: none;
+  }
+  
+  .sidebarButton{
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .minicart{
+    width: 350px;
+  }
+}
+
+@media only screen and (max-width:500px) {
+  .desktop{
+    display: none;
+  }
+
+  .mobile{
+    display: flex;
+    position: relative;
+  }
+
+  header{
+    margin-bottom: 0 !important;
+  }
+
+  #left{
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 20;
+  }
+
+  #right{
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .cart{
+    gap: 10px !important;
+  }
+
+  .cartText{
+    padding: 30px;
+    width: 100% !important;
+  }
+
+  .inputDiv{
+    padding: 15px 30px;
+    justify-content: space-between;
+  }
+
+  .counterAndAddCart{
+    flex-direction: column !important;
+    gap: 20px;
+  }
+
+  .addToCartButton{
+    width: 100%;
+  }
+
+  .linkslistdiv{
+    gap: 20px !important;
+  }
+
+  .minicart{
+    width: 200px;
+  }
+
+  .cartData{
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .text{
+    margin-bottom: 30px;
+  }
+
+  .cartDataImg{
+    height: 120px;
+  }
+}
+
+.minicart {
+  transition: max-height 0.1 ease-in-out, opacity 0.1 ease-in-out, padding 0.1 ease-in-out;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  padding: 0;
+}
+
+.minicart-open {
+  max-height: 310px;
+  opacity: 1;
+  padding: 1rem; 
+}
+
+.text{
+  transition: font-size 0.1 ease-in-out, opacity 0.1 ease-in-out;
+  font-size: 0px;
+  opacity: 0;
+}
+
+.text-open{
+  font-size: inherit;
+  opacity: 1;
+}
+
+.text-closed{
+  opacity: 0;
+  font-size: 0;
+}
+
+.sidebar{
+  transition: max-width ease-in-out 0.1s;
+}
