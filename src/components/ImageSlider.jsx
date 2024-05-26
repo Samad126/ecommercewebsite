@@ -51,7 +51,7 @@ export default function ImageSlider({ imgBigArr, imgNumber ,imgLittleArr, handle
         <div className="flex">
           <div id="backdrop" className="opacity-80 w-full"></div>
           <div className="flex absolute z-30 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 justify-center">
-            <button className="z-30 bg-white absolute top-40 -left-3 p-3 rounded-full -translate-y-1/2" onClick={() => handleClick('left')} id="left"><img src={leftArrwow} alt="left" /></button>
+            <button className="z-30 bg-white absolute top-40 flex justify-center items-center w-10 h-10 -left-0 p-3 rounded-full -translate-y-1/2" onClick={() => handleClick('left')} id="left"><img src={leftArrwow} alt="left" /></button>
             <div className="desktop flex flex-col items-center">
               <div id="imageslider" className="flex overflow-hidden w-80 mb-10 rounded-lg">
                 {imgBigArr.map((img, index) => (
@@ -82,7 +82,7 @@ export default function ImageSlider({ imgBigArr, imgNumber ,imgLittleArr, handle
                 ))}
               </div>
             </div>
-            <button className="z-30 bg-white absolute top-40 -right-3 p-3 rounded-full -translate-y-1/2" onClick={() => handleClick('right')} id="left"><img src={rightArrwow} alt="right" /></button>
+            <button className="z-30 bg-white absolute flex justify-center items-center w-10 h-10 top-40 -right-0 p-3 rounded-full -translate-y-1/2" onClick={() => handleClick('right')} id="left"><img src={rightArrwow} alt="right" /></button>
             <button className="absolute z-30 -right-10 -top-10 text-white" onClick={handleSliderBackdrop}><img src={closeModalImg} alt="closeModal" /></button>
           </div>
         </div>, document.getElementById('modal')

@@ -29,7 +29,7 @@ const imgLittleArr = [
 ];
 
 
-export default function Shop({cartData, setCartData}) {
+export default function Shop({ cartData, setCartData }) {
   const [imgNumber, setImgNumber] = useState(0);
   const [imgNumberSlider, setImgNumberSlider] = useState(0);
   const [pixel, setPixel] = useState(0);
@@ -38,13 +38,14 @@ export default function Shop({cartData, setCartData}) {
   const sliderRef = useRef();
   const inputRef = useRef();
 
-  useEffect(()=>{
+  useEffect(() => {
     inputRef.current.value = 0;
   })
 
   function handleImgChange(index) {
     setImgNumber(index);
   }
+
 
   function handleCount(type) {
     if (type === "plus") {
@@ -58,13 +59,31 @@ export default function Shop({cartData, setCartData}) {
   }
 
   function handleAdd() {
-    let count = Number(inputRef.current.value)
-    if (count != 0){
+    const inputValue = Number(inputRef.current.value);
+    let count = 0;
+    if (inputValue != 0 && inputValue > 0 && inputValue <= 30) {
+      if (cartData.count != null) {
+        if (cartData.count + inputValue <= 30) {
+          count = inputValue + cartData.count;
+          alert("Item(s) added to cart");
+        }
+        else {
+          alert(`You have ${cartData.count} items in the cart and you cant add ${inputValue} items to cart because stock is 30`);
+          count = cartData.count;
+        }
+      }
+      else {
+        count = inputValue;
+        alert("Item(s) added to cart");
+      }
       setCartData({
-        price : count * 125,
-        count : count,
-        img : imgLittleArr[imgNumber]
+        price: count * 125,
+        count: count,
+        img: imgLittleArr[imgNumber]
       })
+    }
+    else {
+      alert("Please choose number between 1 and 30(max stock)");
     }
   }
 
@@ -100,13 +119,13 @@ export default function Shop({cartData, setCartData}) {
       <div className="flex mx-auto justify-center gap-20 items-center max-w-5xl max-lg:flex-col cart">
         {sliderBackdropToggle ? <ImageSlider imgBigArr={imgBigArr} imgNumber={imgNumber} imgLittleArr={imgLittleArr} pixel={pixel} setPixel={setPixel} handleSliderBackdrop={handleSliderBackdrop} /> : null}
         <div ref={sliderRef} className="mobile hidden">
-          <button className="bg-white p-4 rounded-full ml-2" onClick={() => handleClick('left')} id="left"><img src={leftArrwow} alt="left" /></button>
+          <button className="bg-white p-4 rounded-full ml-2 flex justify-center items-center w-12 h-12" onClick={() => handleClick('left')} id="left"><img src={leftArrwow} alt="left" /></button>
           <div id="imageslider" className="flex overflow-hidden">
             {imgBigArr.map((img, index) => (
               <img style={{ transform: `translateX(${pixel}px)` }} className="" key={index} src={img} alt="" />
             ))}
           </div>
-          <button className="bg-white p-4 rounded-full mr-2" onClick={() => handleClick('right')} id="right"><img src={rightArrwow} /></button>
+          <button className="bg-white p-4 rounded-full mr-2 flex justify-center items-center w-12 h-12 " onClick={() => handleClick('right')} id="right"><img src={rightArrwow} /></button>
         </div>
         <div className="desktop">
           <button onClick={setSliderBackdropToggle}>
@@ -158,22 +177,24 @@ export default function Shop({cartData, setCartData}) {
             <del className="text-gray-400 font-bold">$250.00</del>
           </div>
           <div className="flex justify-between counterAndAddCart">
-            <div className="flex items-center bg-slate-100 p-2 gap-6 rounded-lg inputDiv">
-              <button onClick={() => handleCount("minus")}>
+            <div className="flex items-center bg-slate-100 gap-6 rounded-lg inputDiv h-fit">
+              <button className="pl-4 pr-4 pt-7 pb-7 active:outline active:outline-1 active:outline-orange-600 rounded active:scale-90 transition-transform duration-100" onClick={() => handleCount("minus")}>
                 <img src={minusicon} alt="minus" />
               </button>
-              <input ref={inputRef} type="number" className="bg-slate-100 w-12 text-center" name="count"/>
-              <button onClick={() => handleCount("plus")}>
+              <input ref={inputRef} type="number" className="bg-slate-100 w-12 text-center" name="count" />
+              <button className="pl-4 pr-4 pt-6 pb-6 active:outline active:outline-1 active:outline-orange-600 rounded active:scale-90 transition-transform duration-100" onClick={() => handleCount("plus")}>
                 <img src={plusicon} alt="plus" />
               </button>
+
             </div>
-            <button onClick={handleAdd} className="flex items-center gap-5 text-white bg-orange-600 p-4 rounded-md w-2/4 justify-center addToCartButton">
+            <button onClick={handleAdd} className="flex items-center gap-5 text-white bg-orange-600 p-4 rounded-md w-2/4 justify-center addToCartButton active:bg-white active:outline active:outline-1 active:outline-orange-600 active:text-black">
               <img src={cartimg} alt="" /> Add to cart
             </button>
           </div>
         </div>
       </div>
-      <footer className="footer text-center mt-28">FOOTER</footer>
+      <footer className="footer text-center mt-28 pb-10">Challenge by <a className="text-orange-600" href="https://www.frontendmentor.io/challenges/ecommerce-product-page-UPsZ9MJp6" target="_blank">Frontend Mentor</a>.
+        Coded by <a target="_blank" className="text-orange-600" href="https://github.com/Samad126">Samad Alakbarov</a>.</footer>
     </>
   );
 }
