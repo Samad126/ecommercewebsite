@@ -61,7 +61,7 @@ export default function Shop({ cartData, setCartData }) {
   function handleAdd() {
     const inputValue = Number(inputRef.current.value);
     let count = 0;
-    if (inputValue != 0 && inputValue > 0 && inputValue <= 30) {
+    if (inputValue != 0 && inputValue > 0 && inputValue <= 30 && inputValue % 1 === 0) {
       if (cartData.count != null) {
         if (cartData.count + inputValue <= 30) {
           count = inputValue + cartData.count;
@@ -83,7 +83,7 @@ export default function Shop({ cartData, setCartData }) {
       })
     }
     else {
-      alert("Please choose number between 1 and 30(max stock)");
+      alert("Please choose integer number between 1 and 30(max stock)");
     }
   }
 

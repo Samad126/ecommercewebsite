@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 *{
-  transition: all 0.3s;
+  transition: all 0.5s;
 }
 
 html, body {
@@ -164,7 +164,7 @@ body {
 }
 
 .minicart {
-  transition: max-height 0.1 ease-in-out, opacity 0.1 ease-in-out, padding 0.1 ease-in-out;
+  transition: max-height 150ms ease-in-out, opacity 150ms ease-in-out, padding 150ms ease-in-out;
   max-height: 0;
   opacity: 0;
   overflow: hidden;
@@ -178,7 +178,7 @@ body {
 }
 
 .text{
-  transition: font-size 0.1 ease-in-out, opacity 0.1 ease-in-out;
+  transition: font-size 150ms ease-in-out, opacity 150ms ease-in-out;
   font-size: 0px;
   opacity: 0;
 }
@@ -194,7 +194,7 @@ body {
 }
 
 .sidebar{
-  transition: max-width ease-in-out 0.1s;
+  transition: max-width ease-in-out 0.3s;
 }
 
 .paddingZero{

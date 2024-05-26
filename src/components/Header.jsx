@@ -1,7 +1,6 @@
 import { useState, useRef } from "react";
 import { createPortal } from "react-dom";
 import MiniCart from "./MiniCart";
-import Sidebar from "./Sidebar";
 
 import cartimg from "../assets/icon-cart.svg";
 import logosvg from "../assets/logo.svg";
@@ -28,13 +27,13 @@ export default function Header({ cartData, setCartData }) {
         <div className="flex z-30">
           <div className={sidebarToggle ? "fixed opacity-80" : "hidden"} onClick={() => setSidebarToggle(prev => !prev)} id="backdrop"></div>
           <div className={`flex flex-col fixed z-30 h-full bg-white w-56 pt-24 sidebar ${sidebarToggle ? "max-w-56" : "max-w-0"}`}>
-            <button onClick={() => setSidebarToggle(prev => !prev)}><img className={`h-5 w-fit mb-10 absolute left-44 top-5 ${sidebarToggle ? "block" : "hidden"}`} src={closeImg} alt="closeImg" /></button>
+            <button className={`h-5 w-fit mb-10 absolute left-44 top-5 ${sidebarToggle ? "block" : "hidden"}`} onClick={() => setSidebarToggle(prev => !prev)}><img src={closeImg} alt="closeImg" /></button>
             <ul className="ml-10 flex flex-col gap-8">
-              <li><a className={`font-bold sidebarLinks ${sidebarToggle ? "block" : "hidden"}`} href="#">Collections</a></li>
-              <li><a className={`font-bold sidebarLinks ${sidebarToggle ? "block" : "hidden"}`} href="#">Men</a></li>
-              <li><a className={`font-bold sidebarLinks ${sidebarToggle ? "block" : "hidden"}`} href="#">Women</a></li>
-              <li><a className={`font-bold sidebarLinks ${sidebarToggle ? "block" : "hidden"}`} href="#">About</a></li>
-              <li><a className={`font-bold sidebarLinks ${sidebarToggle ? "block" : "hidden"}`} href="#">Contact</a></li>
+              <li><a className={`font-bold sidebarLinks ${sidebarToggle ? "text text-open" : "text text-closed"}`} href="#">Collections</a></li>
+              <li><a className={`font-bold sidebarLinks ${sidebarToggle ? "text text-open" : "text text-closed"}`} href="#">Men</a></li>
+              <li><a className={`font-bold sidebarLinks ${sidebarToggle ? "text text-open" : "text text-closed"}`} href="#">Women</a></li>
+              <li><a className={`font-bold sidebarLinks ${sidebarToggle ? "text text-open" : "text text-closed"}`} href="#">About</a></li>
+              <li><a className={`font-bold sidebarLinks ${sidebarToggle ? "text text-open" : "text text-closed"}`} href="#">Contact</a></li>
             </ul>
           </div>
         </div>, document.getElementById("modal")
