@@ -49,7 +49,7 @@ export default function ImageSlider({ imgBigArr, imgNumber ,imgLittleArr, handle
     <>
       {createPortal(
         <div className="flex">
-          <div id="backdrop" className="opacity-80 w-full"></div>
+          <div onClick={() => handleSliderBackdrop(false)} className="opacity-80 w-full backdrop backdrop-open pointer-events-auto"></div>
           <div className="flex absolute z-30 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 justify-center">
             <button className="z-30 bg-white absolute top-40 flex justify-center items-center w-10 h-10 -left-0 p-3 rounded-full -translate-y-1/2" onClick={() => handleClick('left')} id="left"><img src={leftArrwow} alt="left" /></button>
             <div className="desktop flex flex-col items-center">

@@ -167,8 +167,8 @@ export default function Shop({ cartData, setCartData }) {
             Featuring a durable rubber outer sole, they’ll withstand everythingsp
             the weather can offer.
           </p>
-          <div>
-            <p className="flex items-center gap-8 mb-4">
+          <div className="max-sm:flex max-sm:items-center justify-between">
+            <p className="flex items-center gap-8 mb-4 max-sm:mb-0 max-sm:gap-3">
               <span className="font-bold text-4xl">$125.00 </span>
               <span className="bg-black text-white p-1 rounded">
                 50%
