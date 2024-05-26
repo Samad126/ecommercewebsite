@@ -25,7 +25,7 @@ export default function Header({ cartData, setCartData }) {
     <header className="flex justify-center gap-72 items-center mb-28 p-6 max-lg:justify-between max-lg:gap-0">
       {createPortal(
         <div className="flex z-30">
-          <div className={sidebarToggle ? "fixed opacity-80" : "hidden"} onClick={() => setSidebarToggle(prev => !prev)} id="backdrop"></div>
+          <div className={`backdrop ${sidebarToggle ? "backdrop-open " : "backdrop-closed"}`} onClick={() => setSidebarToggle(prev => !prev)}></div>
           <div className={`flex flex-col fixed z-30 h-full bg-white w-56 pt-24 sidebar ${sidebarToggle ? "max-w-56" : "max-w-0"}`}>
             <button className={`h-5 w-fit mb-10 absolute left-44 top-5 ${sidebarToggle ? "block" : "hidden"}`} onClick={() => setSidebarToggle(prev => !prev)}><img src={closeImg} alt="closeImg" /></button>
             <ul className="ml-10 flex flex-col gap-8">

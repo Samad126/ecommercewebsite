@@ -187,7 +187,7 @@ export default function Shop({ cartData, setCartData }) {
               </button>
 
             </div>
-            <button onClick={handleAdd} className="flex items-center gap-5 text-white bg-orange-600 p-4 rounded-md w-2/4 justify-center addToCartButton active:bg-white active:outline active:outline-1 active:outline-orange-600 active:text-black">
+            <button onClick={handleAdd} className="flex items-center gap-5 text-white bg-orange-600 p-4 rounded-md w-2/4 justify-center addToCartButton hover:bg-white hover:outline hover:outline-1 hover:outline-orange-600 hover:text-black">
               <img src={cartimg} alt="" /> Add to cart
             </button>
           </div>
